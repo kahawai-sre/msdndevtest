@@ -16,12 +16,12 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 ### Prep AAD in new tenant (optional)
 1.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
 2.  In the Azure Active Directory service view, look at configuring:
- -- Custom domains names (if you own a domain and want to use for AAD testing)
- -- Company branding
- -- Change Security Defaults to use Conditional Access for testing
- -- Create test users
- -- Configure AD Connect (requires a test VM running a traditional Active Directory domain, with connectivity to the Internet)
- -- ....
+  - Custom domains names (if you own a domain and want to use for AAD testing)
+  - Company branding
+  - Change Security Defaults to use Conditional Access for testing
+  - Create test users
+  - Configure AD Connect (requires a test VM running a traditional Active Directory domain, with connectivity to the Internet)
+  - ....
 
 ### Sign up for PowerApps Automate per user trial, and assign E5 licenses to AAD users in the new tenant
 1.  Sign in to the Office 365 admin center https://admin.microsoft.com/Adminportal/Home#/homepage as your MSDN M365 E5 tenant admin i.e. myadmin@mynewdomain.onmicrosoft.com
@@ -30,11 +30,15 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 4.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
 5.  In the Azure Active Directory service view, select users, select the user to confgiure licensing for, select "Licenses" and add an assignment for E5 and Powerapps as required.
 
-## Install WSL 10
-1. dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-2. dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-3. Download and installl the WSL2 Linux Kernel package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+### Prep local dev-test environment - Assumes Windows 10 Version 1903 or higher, with Build 18362 or higher
 
-- Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+## Install WSL 2
+Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
+1. Enable subsystem for Linux:
+  - dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+2. Enable Virtual Machines (not full Hyper-V)
+  - dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+4. Download and installl the WSL2 Linux Kernel package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+
 
 
