@@ -138,8 +138,8 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 ## Run first boot for the new WSL instance
 1. Open Windows Terminal
 2. From the drop down list of available distros, select the new distro e.g. Ubuntu-20.10:
-
-4. 
+  ![](/img/distro.jpg "Select new Ubuntu distro")
+3. 
 
 ## Configure the WSL bash theme:
 1. Open Windows Terminal and if not the default, open a new Ubuntu-20.xx shell/window
