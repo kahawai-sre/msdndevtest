@@ -74,15 +74,17 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
    1. From a statndard Windows command prompt, run the following to get a shell on the new WSL instance:
        ``` wsl.exe --distribution "<name_of_new_distro>" ```
         ![](/img/startwsl.jpg "Select new Ubuntu distro")
-   2. Create a new Ubuntu user and set password when prompted ```sudo adduser jtadmin```
-      ``` sudo adduser jtadmin ```
+   2. Create a new Ubuntu user and set password when prompted:
+      ``` 
+      sudo adduser jtadmin
+      ```
    3. Set the new user as the default (vs root) when connecting to the WSL distro by adding the the [user] section to /etc/wsl.conf as per below:
       ```
-       cat <<EOF >/etc/wsl.conf
-       [user]
-       default=jtadmin
-       EOF
-     ```
+      cat <<EOF >/etc/wsl.conf
+      [user]
+      default=jtadmin
+      EOF
+      ```
    4. Add the new user to the sudo group:
       ```
       sudo usermod -aG sudo jtadmin
