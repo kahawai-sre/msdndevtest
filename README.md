@@ -35,9 +35,13 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 ## Install WSL 2
 Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 1. Enable subsystem for Linux:
-  'dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart'
+  ```
+  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+  ```
 2. Enable Virtual Machines (not full Hyper-V)
-  'dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart'
+  ```
+  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  ```
 4. Download and installl the WSL2 Linux Kernel package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 5. Reboot
 
