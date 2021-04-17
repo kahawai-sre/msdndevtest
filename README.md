@@ -148,6 +148,13 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
       ],
   ```
 
+## Run first boot for the new WSL instance
+1. Open Windows Terminal
+2. From the drop down list of available distros, select the new distro e.g. Ubuntu-20.10:
+  ![image](https://user-images.githubusercontent.com/77031653/115101715-9e077180-9f9a-11eb-9592-afdf9b82e072.png)
+
+4. 
+
 ## Configure the WSL bash theme:
 1. Open Windows Terminal and if not the default, open a new Ubuntu-20.xx shell/window
 2. Run the following commands to install powerline-go
@@ -173,7 +180,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
   ```
   Install-Module oh-my-posh -Scope CurrentUser
   ```
-4. From the powershell prompt, run:
+4. From the powershell prompt in Windows Terminal, run:
   ```
   notepad $PROFILE
   ```
@@ -181,9 +188,8 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
   ```
   Import-Module posh-git
   Import-Module oh-my-posh
-  Set-Theme Paradox
+  Set-PoshPrompt Paradox
   ```
-![image](https://user-images.githubusercontent.com/77031653/115101206-50890580-9f96-11eb-8da7-a538381fe3bf.png)
 
 ## Useful links
 * https://wiki.ubuntu.com/WSL
