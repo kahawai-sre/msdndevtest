@@ -48,7 +48,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 ## Install Ubuntu (e.g. 20.04 LTS) as a WSL2 instance:
 ### Option 1: From the Microsoft Store
 1. Open Micrsosoft Store, for Ubuntu 20:04 use this link https://www.microsoft.com/store/apps/9n6svws3rx71
-2. Follow the options to install
+2. Follow the normal Store options to install
 ### Option 2: From the Ubuntu Cloud Images library:
 1. From https://cloud-images.ubuntu.com/releases navigate to the desired release folder e.g. 20.10 https://cloud-images.ubuntu.com/releases/groovy/release/
 2. Find the file with suffix ..."-amd64-wsl.rootfs.tar.gz" and download e.g. https://cloud-images.ubuntu.com/releases/groovy/release/ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz
@@ -61,13 +61,58 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
         Note that this will create a .vhdx image in the target install folder for the distro
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
 
-## Install Cascadia Code PL font:
+
+## Run first boot for the new WSL instance - if installed via __Windows Store__
+1. Open Windows Terminal
+2. From the drop down list of available distros, select the new distro e.g. Ubuntu-20.10:
+  ![](/img/distro.jpg "Select new Ubuntu distro")
+3. When promppted, enter a new username and password. 
+4. __Remember the password__, it will be required for sudo etc.
+
+## Run first boot for the new WSL instance - if installed via importing a WSL Cloud image using __wsl.exe --import ..__
+1. When creating a new Ubuntu or other WSL image via the command line, vs. Windows Store, you will need to create a new non-root user, configure for sudo, and set as the default user when opening a WSL shell for the distro.
+   1. From a statndard Windows command prompt, run the following to get a shell on the new WSL instance:
+       ``` wsl.exe --distribution "<name_of_new_distro>" ```
+        ![](/img/startwsl.jpg "Select new Ubuntu distro")
+   2. Create a new Ubuntu user and set password when prompted ```sudo adduser jtadmin```
+      ``` sudo adduser jtadmin ```
+   3. Set the new user as the default (vs root) when connecting to the WSL distro by adding the the [user] section to /etc/wsl.conf as per below:
+      ```
+       cat <<EOF >/etc/wsl.conf
+       [user]
+       default=jtadmin
+       EOF
+     ```
+   4. Add the new user to the sudo group:
+      ```
+      sudo usermod -aG sudo jtadmin
+      ```
+   5. Type "exit" to get back to the windows command prompt
+   6. Terminate the new instance:
+      ```
+      wsl.exe --terminate Ubuntu-20.10
+      ```
+   7. Open the new distro again and verify your shell is now in the context of the new user:
+      ``` 
+      wsl.exe -- distribution Ubuntu-20.10
+      ```
+    
+## 
+5. Update the Ubuntu distro as follows:
+    ```
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    sudo apt-get autoremove
+    ```
+
+## Install Cascadia Code PL font (Windows host):
 1. Download https://github.com/microsoft/cascadia-code/releases/download/v2102.25/CascadiaCode-2102.25.zip (or newer from https://github.com/microsoft/cascadia-code/releases)
 2. Extract the /ttf/CascadiaCodePL.ttf font
 3. In Windows, Start => Settings => Search for "Font Settings" and open
 4. Drag the extracted .ttf file to the "Add fonts" control
 
-## Install and configure Windows Terminal
+## Install and configure Windows Terminal (Windows host)
 1. Search for and install "Windows Terminal" from the Windows Store
 2. Windows Terminal uses a "settings.json" configuration file to customise the distros and settings for each (appearance etc)
 3. Open Windows Terminal, and select Settings from the drop down in the window navigation bar
@@ -135,11 +180,6 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     ],
     ```
  
-## Run first boot for the new WSL instance
-1. Open Windows Terminal
-2. From the drop down list of available distros, select the new distro e.g. Ubuntu-20.10:
-  ![](/img/distro.jpg "Select new Ubuntu distro")
-3. 
 
 ## Configure the WSL bash theme:
 1. Open Windows Terminal and if not the default, open a new Ubuntu-20.xx shell/window
