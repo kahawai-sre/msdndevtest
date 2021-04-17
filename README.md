@@ -74,25 +74,25 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 4. Within the settings.json file, under "profiles" all registered WSL distros are visible. Any new distro will be registered in here automatically if either of the methods above are used (Windows Store or wsl --import)
 5. There are a lot of options available for customisation - see https://docs.microsoft.com/en-us/windows/terminal/customize-settings/startup. Suggest the ones below as a start:
     1. Set the "defaultProfile" to the GUID of the distro you want as the default when the a new terminal session is opened:
-    ```
-    {
-      "$schema": "https://aka.ms/terminal-profiles-schema",
-      "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-      ...
-    }
-    ```
+      ```
+      {
+        "$schema": "https://aka.ms/terminal-profiles-schema",
+        "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+        ...
+      }
+      ```
     2. Update WSL profiles to set the home diretory to the native Linux filesystem path (defaults to /mnt/c/users/<username> which has poor performance)
-    ```
-    {
-        "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
-        "hidden": false,
-        "name": "Ubuntu-20.10",
-        "source": "Windows.Terminal.Wsl",
-        "startingDirectory": "\\\\wsl$\\Ubuntu-20.10\\home\\jtadmin",
-        "fontFace" : "Cascadia Code PL",
-        "fontSize": 10
-    },
-    ```
+      ```
+      {
+          "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+          "hidden": false,
+          "name": "Ubuntu-20.10",
+          "source": "Windows.Terminal.Wsl",
+          "startingDirectory": "\\\\wsl$\\Ubuntu-20.10\\home\\jtadmin",
+          "fontFace" : "Cascadia Code PL",
+          "fontSize": 10
+      },
+      ```
   3. Update the Powershell profile to optimise appearance:
     ```
     {
@@ -109,31 +109,31 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     },
     ...
   4. Define the "Frost" colour scheme for Powershell
-  ```
-  "schemes": [
-      {
-          "name" : "Frost",
-          "background" : "#FFFFFF",
-          "black" : "#3C5712",
-          "blue" : "#17b2ff",
-          "brightBlack" : "#749B36",
-          "brightBlue" : "#27B2F6",
-          "brightCyan" : "#13A8C0",
-          "brightGreen" : "#89AF50",
-          "brightPurple" : "#F2A20A",
-          "brightRed" : "#F49B36",
-          "brightWhite" : "#741274",
-          "brightYellow" : "#991070",
-          "cyan" : "#3C96A6",
-          "foreground" : "#000000",
-          "green" : "#6AAE08",
-          "purple" : "#991070",
-          "red" : "#8D0C0C",
-          "white" : "#6E386E",
-          "yellow" : "#991070"
-      }
-  ],
-  ```
+    ```
+    "schemes": [
+        {
+            "name" : "Frost",
+            "background" : "#FFFFFF",
+            "black" : "#3C5712",
+            "blue" : "#17b2ff",
+            "brightBlack" : "#749B36",
+            "brightBlue" : "#27B2F6",
+            "brightCyan" : "#13A8C0",
+            "brightGreen" : "#89AF50",
+            "brightPurple" : "#F2A20A",
+            "brightRed" : "#F49B36",
+            "brightWhite" : "#741274",
+            "brightYellow" : "#991070",
+            "cyan" : "#3C96A6",
+            "foreground" : "#000000",
+            "green" : "#6AAE08",
+            "purple" : "#991070",
+            "red" : "#8D0C0C",
+            "white" : "#6E386E",
+            "yellow" : "#991070"
+        }
+    ],
+    ```
  
 ## Run first boot for the new WSL instance
 1. Open Windows Terminal
