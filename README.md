@@ -72,7 +72,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 2. Windows Terminal uses a "settings.json" configuration file to customise the distros and settings for each (appearance etc)
 3. Open Windows Terminal, and select Settings from the drop down in the window navigation bar
 4. Within the settings.json file, under "profiles" all registered WSL distros are visible. Any new distro will be registered in here automatically if either of the methods above are used (Windows Store or wsl --import)
-5. There are a lot of optios available for customisation - see https://docs.microsoft.com/en-us/windows/terminal/customize-settings/startup
+5. There are a lot of options available for customisation - see https://docs.microsoft.com/en-us/windows/terminal/customize-settings/startup
     1. Set the "defaultProfile" to the GUID of the distro you want as the default when the a new terminal session is opened:
     ```
     {
@@ -82,7 +82,17 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     }
     ```
     2. Update Powershell and WSL profiles to set the home diretory to the native Linux filesystem path (defaults to /mnt/c/users/<username>)
-    
+    ```
+    {
+        "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+        "hidden": false,
+        "name": "Ubuntu-20.10",
+        "source": "Windows.Terminal.Wsl",
+        "startingDirectory": "\\\\wsl$\\Ubuntu-20.10\\home\\jtadmin",
+        "fontFace" : "Cascadia Code PL",
+        "fontSize": 10
+    },
+    ```
 
  
 ## Run first boot for the new WSL instance
