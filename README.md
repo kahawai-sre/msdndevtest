@@ -67,7 +67,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 3. Open Windows Terminal, and select Settings from the drop down in the window navigation bar
 4. Within the settings.json file, under "profiles" all registered WSL distros are visible. Any new distro will be registered in here automatically if either of the methods above are used (Windows Store or wsl --import)
 5. There are a lot of optios available for customisation - see https://docs.microsoft.com/en-us/windows/terminal/customize-settings/startup
-  Set the "defaultProfile" to the GUID of the distro you want as the default when the a new terminal session is opened
+    1. Set the "defaultProfile" to the GUID of the distro you want as the default when the a new terminal session is opened
 7. 
 
 ## Useful links
