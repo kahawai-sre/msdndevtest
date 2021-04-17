@@ -82,12 +82,12 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     }
     ```
     2. Update Powershell and WSL profiles to set the home diretory to the native Linux filesystem path (defaults to /mnt/c/users/<username>)
-    ```
+  ``` json
     "profiles":
     {
         "defaults":
         {
-            // Put settings here that you want to apply to all profiles.
+            <put settings here that you want to apply to all profiles>
         },
         "list":
         [
@@ -120,7 +120,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
                 "fontFace" : "Cascadia Code PL",
                 "fontSize": 10
             },
-    ```
+  ```
     3. For powershell, create the following under "schemes":
     ```
     "schemes": [
@@ -146,7 +146,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
               "yellow" : "#991070"
           }
       ],
-  ```
+ ```
 
 ## Run first boot for the new WSL instance
 1. Open Windows Terminal
