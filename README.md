@@ -54,7 +54,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 2. Find the file with suffix ..."-amd64-wsl.rootfs.tar.gz" and download e.g. https://cloud-images.ubuntu.com/releases/groovy/release/ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz
 3. Copy the downloaded install to a subfolder under your home directory e.g. C:\Users\usera\wsl-distros
 4. From a command prompt, run the following to create a new WSL instance:
-        ```wsl.exe --import <unique-name-for-distro> <path_to_target_install_folder> <path_to_-amd64-wsl.rootfs.tar.gz _file> e.g.
+        ```wsl.exe --import <unique-name-for-distro> <path_to_target_install_folder> <path_to_-amd64-wsl.rootfs.tar.gz _file> ``` e.g.
   ```
   wsl.exe --import Ubuntu-20.10 C:\Users\usera\wsl-distros C:\Users\justinturver\Downloads\ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz
   ```
