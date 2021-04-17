@@ -82,7 +82,43 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     }
     ```
     2. Update Powershell and WSL profiles to set the home diretory to the native Linux filesystem path (defaults to /mnt/c/users/<username>)
-  
+  ``` json
+    "profiles":
+    {
+        "defaults":
+        {
+         
+        },
+        "list":
+        [
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "name": "Windows PowerShell",
+                "commandline": "powershell.exe",
+                "hidden": false,
+                "fontSize": 10,
+                "acrylicOpacity": 0.7,
+                "colorScheme" : "Frost",
+                "cursorColor" : "#000000",
+                "fontFace" : "Cascadia Code PL",
+                "useAcrylic": true
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "Command Prompt",
+                "commandline": "cmd.exe",
+                "hidden": false
+            },
+            {
+                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "hidden": false,
+                "name": "Ubuntu-20.10",
+                "source": "Windows.Terminal.Wsl",
+                "startingDirectory": "\\\\wsl$\\Ubuntu-20.10\\home\\jtadmin",
+                "fontFace" : "Cascadia Code PL",
+                "fontSize": 10
+            },
+  ```
  
     3. For powershell, create the following under "schemes":
     ``` json
@@ -110,7 +146,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
           }
       ],
  ```
-
+ 
 ## Run first boot for the new WSL instance
 1. Open Windows Terminal
 2. From the drop down list of available distros, select the new distro e.g. Ubuntu-20.10:
