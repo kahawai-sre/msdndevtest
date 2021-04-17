@@ -1,5 +1,5 @@
 # msdndevtest
-Review steps for activating an MSDN Enterprise subscription and setting up a WSL2, Ubuntu and VSCode development environment for Microsoft Azure
+Review steps for activating an MSDN Enterprise subscription and setting up a WSL2, Ubuntu, Docker Desktop, and VSCode development environment for Microsoft Azure
 
 ## Prep Azure and Office 365 environment
 ### Activate ad prep Azure MSDN Enterprise benefits (high level, covers Azure Subscription and M365 E5 benefits only))
@@ -61,6 +61,12 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
         Note that this will create a .vhdx image in the target install folder for the distro
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
 
+## Install Cascadia Code PL font:
+1. Download https://github.com/microsoft/cascadia-code/releases/download/v2102.25/CascadiaCode-2102.25.zip (or newer from https://github.com/microsoft/cascadia-code/releases)
+2. Extract the /ttf/CascadiaCodePL.ttf font
+3. In Windows, Start => Settings => Search for "Font Settings" and open
+4. Drag the extracted .ttf file to the "Add fonts" control
+
 ## Install Windows Terminal
 1. Search for and install "Windows Terminal" from the Windows Store
 2. Once installed, Windows Terminal uses a "settings.json" configuration file to customise the distros and settings for each (appearance etc)
@@ -75,6 +81,73 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
       ...
     }
     ```
+    2. Update Powershell and WSL profiles to set the home diretory to the native Linux filesystem path (defaults to /mnt/c/users/<username>)
+    ```
+    "profiles":
+    {
+        "defaults":
+        {
+            // Put settings here that you want to apply to all profiles.
+        },
+        "list":
+        [
+            {
+                // Make changes here to the powershell.exe profile.
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "name": "Windows PowerShell",
+                "commandline": "powershell.exe",
+                "hidden": false,
+                "fontSize": 10,
+                "acrylicOpacity": 0.7,
+                "colorScheme" : "Frost",
+                "cursorColor" : "#000000",
+                "fontFace" : "Cascadia Code PL",
+                "useAcrylic": true
+            },
+            {
+                // Make changes here to the cmd.exe profile.
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "Command Prompt",
+                "commandline": "cmd.exe",
+                "hidden": false
+            },
+            {
+                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "hidden": false,
+                "name": "Ubuntu-20.10",
+                "source": "Windows.Terminal.Wsl",
+                "startingDirectory": "\\\\wsl$\\Ubuntu-20.10\\home\\jtadmin",
+                "fontFace" : "Cascadia Code PL",
+                "fontSize": 10
+            },
+    ```
+    3. For powershell, create the following under "schemes":
+    ```
+    "schemes": [
+          {
+              "name" : "Frost",
+              "background" : "#FFFFFF",
+              "black" : "#3C5712",
+              "blue" : "#17b2ff",
+              "brightBlack" : "#749B36",
+              "brightBlue" : "#27B2F6",
+              "brightCyan" : "#13A8C0",
+              "brightGreen" : "#89AF50",
+              "brightPurple" : "#F2A20A",
+              "brightRed" : "#F49B36",
+              "brightWhite" : "#741274",
+              "brightYellow" : "#991070",
+              "cyan" : "#3C96A6",
+              "foreground" : "#000000",
+              "green" : "#6AAE08",
+              "purple" : "#991070",
+              "red" : "#8D0C0C",
+              "white" : "#6E386E",
+              "yellow" : "#991070"
+          }
+      ],
+  ```
+  
 7. 
 
 ## Useful links
