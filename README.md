@@ -51,7 +51,9 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 3. Copy the downloaded install to a subfolder under your home directory e.g. C:\Users\usera\wsl-distros
 4. From a command prompt, run the following to create a new WSL instance:
   wsl.exe --import <unique-name-for-distro> <path_to_target_install_folder> <path_to_-amd64-wsl.rootfs.tar.gz _file> e.g.
-    `wsl.exe --import Ubuntu-20.10 C:\Users\usera\wsl-distros C:\Users\justinturver\Downloads\ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz`
+        ```
+        wsl.exe --import Ubuntu-20.10 C:\Users\usera\wsl-distros C:\Users\justinturver\Downloads\ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz
+        ```
   Note that this will create a .vhdx image in the target install folder for the distro
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
 
@@ -61,7 +63,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 3. Open Windows Terminal, and select Settings from the drop down in the window navigation bar
 4. Within the settings.json file, under "profiles" all registered WSL distros are visible. Any new distro will be registered in here automatically if either of the methods above are used (Windows Store or wsl --import)
 5. There are a lot of optios available for customisation - see https://docs.microsoft.com/en-us/windows/terminal/customize-settings/startup
-  >> Set the "defaultProfile" to the GUID of the distro you want as the default when the a new terminal session is opened
+  Set the "defaultProfile" to the GUID of the distro you want as the default when the a new terminal session is opened
 7. 
 
 ## Useful links
