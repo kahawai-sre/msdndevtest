@@ -58,7 +58,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
   ```
   wsl.exe --import Ubuntu-20.10 C:\Users\usera\wsl-distros C:\Users\justinturver\Downloads\ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz
   ```
-  Note that this will create a .vhdx image in the target install folder for the distro
+        Note that this will create a .vhdx image in the target install folder for the distro
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
 
 ## Install Windows Terminal
