@@ -1,7 +1,7 @@
 # msdndevtest
 Review steps for activating an MSDN Enterprise subscription and setting up a WSL2, Ubuntu, Docker Desktop, and VSCode development environment for Microsoft Azure
 
-## Prep Azure and Office 365 environment
+# Prep Azure and Office 365 environment
 ### Activate ad prep Azure MSDN Enterprise benefits (high level, covers Azure Subscription and M365 E5 benefits only))
 
 1. Assuming your MSDN Enterprise License has been assigned to a corporate account, log on to my.visualstudio.com as e.g. corpuser@corpdomain.com
@@ -30,7 +30,7 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 4.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
 5.  In the Azure Active Directory service view, select users, select the user to confgiure licensing for, select "Licenses" and add an assignment for E5 and Powerapps as required.
 
-### Prep local dev-test environment - Assumes Windows 10 Version 1903 or higher, with Build 18362 or higher
+# Prep local dev-test environment - Assumes Windows 10 Version 1903 or higher, with Build 18362 or higher
 
 ## Install WSL 2
 Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
@@ -67,9 +67,9 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 3. In Windows, Start => Settings => Search for "Font Settings" and open
 4. Drag the extracted .ttf file to the "Add fonts" control
 
-## Install Windows Terminal
+## Install and configure Windows Terminal
 1. Search for and install "Windows Terminal" from the Windows Store
-2. Once installed, Windows Terminal uses a "settings.json" configuration file to customise the distros and settings for each (appearance etc)
+2. Windows Terminal uses a "settings.json" configuration file to customise the distros and settings for each (appearance etc)
 3. Open Windows Terminal, and select Settings from the drop down in the window navigation bar
 4. Within the settings.json file, under "profiles" all registered WSL distros are visible. Any new distro will be registered in here automatically if either of the methods above are used (Windows Store or wsl --import)
 5. There are a lot of optios available for customisation - see https://docs.microsoft.com/en-us/windows/terminal/customize-settings/startup
@@ -147,8 +147,43 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
           }
       ],
   ```
-  
-7. 
+
+## Configure the WSL bash theme:
+1. Open Windows Terminal and if not the default, open a new Ubuntu-20.xx shell/window
+2. Run the following commands to install powerline-go
+  ```
+  sudo apt install golang-go
+  go get -u github.com/justjanne/powerline-go
+  ```
+3. Add the following to __~/.bashrc__ (vim ~/.bashrc):
+  ```
+  GOPATH=$HOME/go
+  function _update_ps1() {
+      PS1="$($GOPATH/bin/powerline-go -error $?)"
+  }
+  if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+      PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+  fi
+  ```
+
+## Configure the Windows Powershell theme
+1. Open Windows Terminal
+2. Click the Drop Down arrow and select a new Powershell window
+3. Install :
+  ```
+  Install-Module oh-my-posh -Scope CurrentUser
+  ```
+4. From the powershell prompt, run:
+  ```
+  notepad $PROFILE
+  ```
+5. Enter the lines shown below and save the file:
+  ```
+  Import-Module posh-git
+  Import-Module oh-my-posh
+  Set-Theme Paradox
+  ```
+![image](https://user-images.githubusercontent.com/77031653/115101206-50890580-9f96-11eb-8da7-a538381fe3bf.png)
 
 ## Useful links
 * https://wiki.ubuntu.com/WSL
