@@ -105,7 +105,6 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
                 "useAcrylic": true
             },
             {
-                // Make changes here to the cmd.exe profile.
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "name": "Command Prompt",
                 "commandline": "cmd.exe",
