@@ -41,10 +41,28 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 4. Download and installl the WSL2 Linux Kernel package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 5. Reboot
 
-## Install Ubuntu (e.g. 20.04 LTS) as a WSL2 instance and Windows Terminal
+## Install Ubuntu (e.g. 20.04 LTS) as a WSL2 instance:
+### Option 1: From the Microsoft Store
 1. Open Micrsosoft Store, for Ubuntu 20:04 use this link https://www.microsoft.com/store/apps/9n6svws3rx71
 2. Follow the options to install
+### Option 2: From the Ubuntu Cloud Images library:
+1. From https://cloud-images.ubuntu.com/releases navigate to the desired release folder e.g. 20.10 https://cloud-images.ubuntu.com/releases/groovy/release/
+2. Find the file with suffix ..."-amd64-wsl.rootfs.tar.gz" and download e.g. https://cloud-images.ubuntu.com/releases/groovy/release/ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz
+3. Copy the downloaded install to a subfolder under your home directory e.g. C:\Users\usera\wsl-distros
+4. From a command prompt, run the following to create a new WSL instance:
+  >> wsl.exe --import <unique-name-for-distro> <path_to_target_install_folder> <path_to_-amd64-wsl.rootfs.tar.gz _file> e.g.
+    `wsl.exe --import Ubuntu-20.10 C:\Users\usera\wsl-distros C:\Users\justinturver\Downloads\ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz`
+  >> Note that this will create a .vhdx image in the target install folder for the distro
+6. Repeat steps for additional Ubuntu distros or alternate Linux images
 
+## Install Windows Terminal
+1. Search for and install "Windows Terminal" from the Windows Store
+2. Once installed, Windows Terminal uses a "settings.json" configuration file to customise the distros and settings for each (appearance etc)
+3. Open Windows Terminal, and select Settings from the drop down in the window navigation bar
+4. Within the settings.json file, under "profiles" all registered WSL distros are visible. Any new distro will be registered in here automatically if either of the methods above are used (Windows Store or wsl --import)
+5. There are a lot of optios available for customisation - see https://docs.microsoft.com/en-us/windows/terminal/customize-settings/startup
+  >> Set the "defaultProfile" to the GUID of the distro you want as the default when the a new terminal session is opened
+7. 
 
 ## Useful links
 * https://wiki.ubuntu.com/WSL
