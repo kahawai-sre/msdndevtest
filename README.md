@@ -35,9 +35,9 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 ## Install WSL 2
 Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 1. Enable subsystem for Linux:
-  >> dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+  'dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart'
 2. Enable Virtual Machines (not full Hyper-V)
-  >> dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+  'dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart'
 4. Download and installl the WSL2 Linux Kernel package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 5. Reboot
 
@@ -50,9 +50,9 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 2. Find the file with suffix ..."-amd64-wsl.rootfs.tar.gz" and download e.g. https://cloud-images.ubuntu.com/releases/groovy/release/ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz
 3. Copy the downloaded install to a subfolder under your home directory e.g. C:\Users\usera\wsl-distros
 4. From a command prompt, run the following to create a new WSL instance:
-  >> wsl.exe --import <unique-name-for-distro> <path_to_target_install_folder> <path_to_-amd64-wsl.rootfs.tar.gz _file> e.g.
+  wsl.exe --import <unique-name-for-distro> <path_to_target_install_folder> <path_to_-amd64-wsl.rootfs.tar.gz _file> e.g.
     `wsl.exe --import Ubuntu-20.10 C:\Users\usera\wsl-distros C:\Users\justinturver\Downloads\ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz`
-  >> Note that this will create a .vhdx image in the target install folder for the distro
+  Note that this will create a .vhdx image in the target install folder for the distro
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
 
 ## Install Windows Terminal
