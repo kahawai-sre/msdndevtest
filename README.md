@@ -84,6 +84,19 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     2. Update Powershell and WSL profiles to set the home diretory to the native Linux filesystem path (defaults to /mnt/c/users/<username>)
     ```
     {
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "Windows PowerShell",
+        "commandline": "powershell.exe",
+        "hidden": false,
+        "fontSize": 10,
+        "acrylicOpacity": 0.7,
+        "colorScheme" : "Frost",
+        "cursorColor" : "#000000",
+        "fontFace" : "Cascadia Code PL",
+        "useAcrylic": true
+    },
+    ...
+    {
         "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
         "hidden": false,
         "name": "Ubuntu-20.10",
