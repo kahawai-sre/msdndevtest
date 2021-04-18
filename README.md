@@ -383,10 +383,10 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
 2. Install with the installation _defaults_
 3. Note that at the time of writing, the bundled version of Git Credential Manager Core seems to have issues. Assuming that is still the case, proceed to the next section to install and the configure standalone Git Vredential Manager Core
 ## Install and configure Git Credential Manager __Core__ (Windows Host and WSL)
-Tested version at this timne is __v2.0.289__. For other releases go to https://github.com/microsoft/Git-Credential-Manager-Core/releases
+Tested version at this time is __v2.0.289__. For other releases go to https://github.com/microsoft/Git-Credential-Manager-Core/releases
 1. In Windows, download and install https://github.com/microsoft/Git-Credential-Manager-Core/releases/tag/v2.0.289-beta
 2. This will install into _C:\Program Files (x86)\Git Credential Manager Core_, where the binary _git-credential-manager-core.exe_ resides
-3. We need to configure the WSL/Linux distro to reference that path as per stesp below 
+3. We need to configure the WSL/Linux distro to reference that path as per steps below:
   1. In Windows Terminal, open a shell for Ubuntu-20.10 or the recently installed distro
   2. Run the following command to configure Linux to call the Git Credential Manager Core via the Windows installed path (either via Git for Windows install path with the net "Credential Manager Core" option selected, or via the standalone GIt Credential Manager Core install path:
       ```
@@ -396,7 +396,7 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
       chmod +x $file
       exit
       ```
-  3. The resulting script ```/usr/bin/git-credential-manager ``` should look like this:
+  3. The resulting script ```/usr/bin/git-credential-manager ``` should have single line as follows:
       ```exec /mnt/c/Program\ Files\ \(x86\)/Git\ Credential\ Manager\ Core/git-credential-manager-core.exe $@```
   5. Run the following command to configure git to call Git Credential Manaager Core:
       ```
@@ -407,7 +407,8 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
       ```
   4. Run ```git config -l``` and verify the output shows this line:
       ```credential.helper=manager```
-  6. No other git config is necessary, and Git Credential Manager Core will call an OAuth flow against either github or Azure Devops repos depending on the source/target of the git operation:
+  6. No other git config is necessary
+  7. Git Credential Manager Core will call an OAuth flow against either github or Azure Devops repos depending on the source/target of the git operation:
       ![](/img/aadauth.jpg "Example GCMC auth flow")
 ## Install and configure VSCode (Windows Host and WSL)
 1. In Windows, browse to https://code.visualstudio.com/ and download and run the VSCode installer
