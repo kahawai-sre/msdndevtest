@@ -379,7 +379,7 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
   terraform -v
   ```
 ## Install and configure Git for Windows (Windows Host)
-1. Download and run the 64-bit Git for Windows setup from here: https://git-scm.com/download/win
+1. In Windows, download and run the 64-bit Git for Windows setup from here: https://git-scm.com/download/win
 2. Install with the installation _defaults_
 3. Note that at the time of writing, the bundled version of Git Credential Manager Core seems to have issues. Assuming that is still the case, proceed to the next section to install and the configure standalone Git Vredential Manager Core
 ## Install and configure Git Credential Manager __Core__ (Windows Host and WSL)
@@ -410,7 +410,7 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
   6. No other git config is necessary, and Git Credential Manager Core will call an OAuth flow against either github or Azure Devops repos depending on the source/target of the git operation:
       ![](/img/aadauth.jpg "Example GCMC auth flow")
 ## Install and configure VSCode (Windows Host and WSL)
-1. Browse to https://code.visualstudio.com/ and download and run the VSCode installer
+1. In Windows, browse to https://code.visualstudio.com/ and download and run the VSCode installer
 2. When prompted, make sure the following is selected:
    ![](/img/add_to_path.png "Add to path option")
 3. Open Vistual Studio Code, and install the "Remote WSL" extension:
@@ -423,7 +423,7 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
 7. Subsequent runs of ```code .``` will launch VSCode in the WSL context
 8. When VSCode is launched in the WSL context, installing VSCode extensions will prompt to install in WSL and - if relevant - Windows contexts.
 ## Install Docker Desktop (Windows Host)
-1. To get a functional docker daemon that can be called by both Windows and WSL clients, download and execute Docker Desktop from https://docs.docker.com/docker-for-windows/install/#install-docker-desktop-on-windows
+1. To get a functional docker daemon that can be called by both Windows and WSL clients, from your Windows host, download and execute Docker Desktop from https://docs.docker.com/docker-for-windows/install/#install-docker-desktop-on-windows
 2. Ensure you have at least version 3.2.2.x or above 
 3. When installing, make sure you select __"Install required Windows components for WSL 2"__ ... do _NOT_ select the Hyper-V option
 4. After installation, start Docker Desktop (if not already started)
