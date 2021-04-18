@@ -1,7 +1,7 @@
 # msdndevtest
 Review steps for activating an MSDN Enterprise subscription and setting up a WSL2, Ubuntu, Docker Desktop, and VSCode development environment for Microsoft Azure
 # Prep Azure and Office 365 environment
-## Activate ad prep Azure and M365 E5 Developer MSDN Enterprise benefits
+## Activate and prep Azure and M365 E5 Developer MSDN Enterprise benefits
 1. Assuming your MSDN Enterprise License has been assigned to a corporate account, log on to my.visualstudio.com as e.g. corpuser@corpdomain.com
 2. Select the "Azure Subscription" benefit and hit Activate
 3. You will be prompted to select an account to map the Azure subscription to. Sign in with your personal account e.g. myuser@hotmail.com.
@@ -430,9 +430,14 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
 5. Open a Windows powershell or command prompt, and run the following command which shows that Docker Desktop is running as a WSL 2 distro, not a VM: 
     ```wsl --list -v```:
     ![](/img/wslilist.jpg "List wsl distros")
-6. Verify WSL can talk to the Docker Daemon in Docker Desktop:
+## Install docker client in WSL
+1. Open a WSL shell for your distro
+2. Install docker:
+  ```sudo apt install docker.io```
+4. Verify WSL can talk to the Docker Daemon in Docker Desktop:
   1. Open the WSL distro shell in Windows Terminal
-  2. Run ```docker ps```
+  2. Run ```docker ps``` and verify there are no errors
+  3. RUn ``` sudo apt install docker.io
 ## Configure the Powershell "Frost" theme  for Windows Terminal (Windows host)
 1. Open __Windows Terminal__
 2. Click the Drop Down arrow and select a new __Powershell__ window
