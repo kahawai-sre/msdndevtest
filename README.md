@@ -378,13 +378,10 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
   sudo cp terraform /usr/bin
   terraform -v
   ```
-  
 ## Install and configure Git for Windows (Windows Host)
 1. Download and run the 64-bit Git for Windows setup from here: https://git-scm.com/download/win
 2. Install with the installation _defaults_
 3. Note that at the time of writing, the bundled version of Git Credential Manager Core seems to have issues. Assuming that is still the case, proceed to the next section to install and the configure standalone Git Vredential Manager Core
-
-
 ## Install and configure Git Credential Manager __Core__ (Windows Host and WSL)
 Tested version at this timne is __v2.0.289__. For other releases go to https://github.com/microsoft/Git-Credential-Manager-Core/releases
 1. In Windows, download and install https://github.com/microsoft/Git-Credential-Manager-Core/releases/tag/v2.0.289-beta
@@ -412,7 +409,6 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
       ```credential.helper=manager```
   6. No other git config is necessary, and Git Credential Manager Core will call an OAuth flow against either github or Azure Devops repos depending on the source/target of the git operation:
       ![](/img/aadauth.jpg "Example GCMC auth flow")
-    
 ## Install and configure VSCode (Windows Host and WSL)
 1. Browse to https://code.visualstudio.com/ and download and run the VSCode installer
 2. When prompted, make sure the following is selected:
@@ -426,7 +422,6 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
      ![](/img/Code.JPG "Initialise VSCode in WSL")
 7. Subsequent runs of ```code .``` will launch VSCode in the WSL context
 8. When VSCode is launched in the WSL context, installing VSCode extensions will prompt to install in WSL and - if relevant - Windows contexts.
-
 ## Install Docker Desktop (Windows Host)
 1. To get a functional docker daemon that can be called by both Windows and WSL clients, download and execute Docker Desktop from https://docs.docker.com/docker-for-windows/install/#install-docker-desktop-on-windows
 2. Ensure you have at least version 3.2.2.x or above 
@@ -437,7 +432,7 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
     ![](/img/wslilist.jpg "List wsl distros")
 6. Verify WSL can talk to the Docker Daemon in Docker Desktop:
   1. Open the WSL distro shell in Windows Terminal
-  2. Run ```docker ps``` 
+  2. Run ```docker ps```
 ## Configure the Powershell "Frost" theme  for Windows Terminal (Windows host)
 1. Open __Windows Terminal__
 2. Click the Drop Down arrow and select a new __Powershell__ window
@@ -455,9 +450,7 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
   Import-Module oh-my-posh
   Set-PoshPrompt Paradox
   ```
-
-
-
+  
 ## Useful links
 * https://wiki.ubuntu.com/WSL
 
