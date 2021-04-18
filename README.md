@@ -32,7 +32,7 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 
 # Prep local dev-test environment - Assumes Windows 10 Version 1903 or higher, with Build 18362 or higher
 
-## Install Windows SUbsystem for Linux v2 (WSL2)
+## Install Windows Subsystem for Linux v2 -WSL2 (on Windows host)
 Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 1. Enable subsystem for Linux:
   ```
@@ -45,7 +45,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 4. Download and installl the WSL2 Linux Kernel package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 5. Reboot
 
-## Install Ubuntu (e.g. 20.04 LTS) as a WSL2 instance:
+## Install Ubuntu (e.g. 20.04 LTS) as a WSL2 instance (on Windows host)
 ### Option 1: From the Microsoft Store
 1. Open Micrsosoft Store, for Ubuntu 20:04 use this link https://www.microsoft.com/store/apps/9n6svws3rx71
 2. Follow the normal Store options to install
@@ -62,7 +62,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
 
 
-## Run first boot for the new WSL instance - if installed via __Windows Store__
+## Run first boot for the new WSL instance - if installed via __Windows Store__ (on Windows host)
 1. Open Windows Terminal
 2. From the drop down list of available distros, select the new distro e.g. Ubuntu-20.10:
   ![](/img/distro.jpg "Select new Ubuntu distro")
@@ -76,7 +76,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     sudo apt-get autoremove
     ```
 
-## Run first boot for the new WSL instance - if installed via importing a WSL Cloud image using __wsl.exe --import ..__
+## Run first boot for the new WSL instance - if installed via importing a WSL Cloud image using __wsl.exe --import ..__ (on Windows host)
 1. When creating a new Ubuntu or other WSL image via the command line, vs. Windows Store, you will need to create a new non-root user, configure for sudo, and set as the default user when opening a WSL shell for the distro.
    1. From a statndard Windows command prompt, run the following to get a shell on the new WSL instance:
        ``` wsl.exe --distribution "<name_of_new_distro>" ```
@@ -186,7 +186,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
             }
         ],
         ```
-## Configure the WSL bash theme:
+## Configure the WSL bash theme (Windows host then WSL shell):
 1. Open Windows Terminal and if not the default, open a new Ubuntu-20.xx shell/window
 2. Run the following commands to install powerline-go
     ```
@@ -204,7 +204,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     fi
     ```
 
-## Install Python 3 (WSL)
+## Install or update Python3 and pip3 (WSL shell)
 Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
 1. Open the new WSL instance in Windows Terminal
 2. Run the following to install python 3.8
@@ -221,8 +221,9 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
     sudo apt install python3-pip
     sudo pip3 install --upgrade pip
     ```
-## Install Azure CLI (WSL2):
-1. Run the following command to execute the MS maintained Linux install script. THis will install the latest version:
+## Install Azure CLI (WSL Shell):
+1. Open the WSL distro shell in Windows Terminal
+2. Run the following command to execute the MS maintained Linux install script. THis will install the latest version:
     ```
     sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
@@ -241,7 +242,51 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
     az extension add --name cosmosdb-preview
     ..etc
     ```
-## Configure the Windows Powershell theme (Windows host)
+## Install Powershell core (WSL shell)
+1. Open the WSL distro shell in Windows Terminal, and run the following:
+  ```
+  # Update the list of packages
+  sudo apt-get update
+  # Install pre-requisite packages.
+  sudo apt-get install -y wget apt-transport-https software-properties-common
+  # Download the Microsoft repository GPG keys
+  wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
+  # Register the Microsoft repository GPG keys
+  sudo dpkg -i packages-microsoft-prod.deb
+  # Update the list of products
+  sudo apt-get update
+  # Enable the "universe" repositories
+  sudo add-apt-repository universe
+  # Install PowerShell
+  sudo apt-get install -y powershell
+  # Start PowerShell to test
+  pwsh
+  ```
+2. Install modules - e.g. Az
+  ```
+  Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
+  ```
+## Install Terraform binary (WSL shell):
+1. Open the WSL distro shell in Windows Terminal
+2. Download latest version of Linux x64, and unzip into path:
+  ```
+  sudo apt install unzip
+  curl https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_linux_amd64.zip --output terraform-latest.zip
+  sudo unzip terraform-latest.zip
+  sudo cp terraform /usr/bin
+  terraform -v
+  ```
+  
+## Install and configure Git for Windows (Windows Host)
+
+## OPTIONAL: Install and configure Git Credential Manager __Core__ (Windows Host and WSL)
+
+## Install and configure VSCode (Windows Host and WSL)
+
+## Install and configure Docker Desktop (Windows Host)
+
+
+## Configure the Powershell "Frost" theme  for Windows Terminal (Windows host)
 1. Open __Windows Terminal__
 2. Click the Drop Down arrow and select a new __Powershell__ window
 3. Install :
@@ -252,29 +297,18 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
   ```
   notepad $PROFILE
   ```
-5. Enter the lines shown below and save the file:
+5. Enter the lines shown below and __save the file__:
   ```
   Import-Module posh-git
   Import-Module oh-my-posh
   Set-PoshPrompt Paradox
   ```
 
-## 
-
-## Install cli tools and Powershell core (WSL distro)
-
-## Install and configure Git for Windows (Windows Host)
-
-## OPTIONAL: Install and configure Git Credential Manager __Core__ (WIndows Host and WSL)
-
-## Install and configure VSCode (Windows Host and WSL)
-
-## Install and configure Docker Desktop (Windows Host)
 
 
 ## Useful links
 * https://wiki.ubuntu.com/WSL
-* 
+
 
 
 
