@@ -427,7 +427,12 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
 2. Ensure you have at least version 3.2.2.x or above 
 3. When installing, make sure you select __"Install required Windows components for WSL 2"__ ... do _NOT_ select the Hyper-V option
 4. After installation, start Docker Desktop (if not already started)
-5. Open a Windows powershell or command prompt, and run the following command which shows that Docker Desktop is running as a WSL 2 distro, not a VM: 
+5. From the taskbar, Open the Docker Desktop GUI
+6. Click the settings button at the top right
+7. Navigate to "Resources"
+8. Select the WSL distros you want to allow to connect to the Docker daemon:
+    ![](/img/DockerDesktop.JPG "Enable distros for Docker")
+10. Open a Windows powershell or command prompt, and run the following command which shows that Docker Desktop is running as a WSL 2 distro, not a VM: 
     ```wsl --list -v```:
     ![](/img/wslilist.jpg "List wsl distros")
 ## Install docker client in WSL
@@ -441,7 +446,7 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
 ## Configure the Powershell "Frost" theme  for Windows Terminal (Windows host)
 1. Open __Windows Terminal__
 2. Click the Drop Down arrow and select a new __Powershell__ window
-3. Install :
+3. Install:
   ```
   Install-Module oh-my-posh -Scope CurrentUser
   ```
