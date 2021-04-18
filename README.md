@@ -32,7 +32,7 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 
 # Prep local dev-test environment - Assumes Windows 10 Version 1903 or higher, with Build 18362 or higher
 
-## Install WSL 2
+## Install Windows SUbsystem for Linux v2 (WSL2)
 Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 1. Enable subsystem for Linux:
   ```
@@ -204,6 +204,44 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     fi
   ```
 
+## Install Python 3 (Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default)
+1. Open the new WSL instance in Windows Terminal
+2. Run the following to install python 3.8
+    ```
+    sudo apt update
+    sudo apt install software-properties-common
+    sudo apt install python3.8
+    python3 --version
+    ```
+3. Run the folling to install pip3 (python package manager)
+    ```
+    sudo apt update
+    sudo apt install python3-pip
+    sudo pip3 install --upgrade pip
+    ```
+## Install Azure CLI:
+1. Run the following command to execute the MS maintained Linux install script. THis will install the latest version:
+    ```
+    sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    ```
+2. Configure Azure cli to auto install extensions:
+    ```
+    az config set extension.use_dynamic_install=yes_prompt
+    az config set extension.run_after_dynamic_install=yes
+    ```
+3. Optional - pre-install desired extensions:
+    ```
+    az extension add --name aks-preview
+    az extension add --name connectedk8s
+    az extension add --name k8sconfiguration
+    az extension add --name azure-firewall
+    az extension add --name azure-devops
+    az extension add --name cosmosdb-preview
+    ...
+    ```
+    
+    
+
 ## Configure the Windows Powershell theme (Windows host)
 1. Open __Windows Terminal__
 2. Click the Drop Down arrow and select a new __Powershell__ window
@@ -221,6 +259,8 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
   Import-Module oh-my-posh
   Set-PoshPrompt Paradox
   ```
+
+## 
 
 ## Install cli tools and Powershell core (WSL distro)
 
