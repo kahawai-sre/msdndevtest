@@ -10,10 +10,11 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 4. Signed in to my.visualstudio.com as corpuser@corpdomain.com again, and activate the "Microsoft 365 - Developer Subscription (E5)" benefit. 
 5. When prompted, select the "Setup Subscription option to create as a __NEW__ tenant and create a new "onmicresoft.com" subdomain and admin user when prompted e.g. myadmin@mynewdomain.onmicrosoft.com):
 ![](/img/M365E5.jpg "Select new M365 subscription")
-6. Log on to the Azure Portal as the new M365 E5 admin user e.g. myadmin@mynewdomain.onmicrosoft.com, and add the personal account used for the MSDN Azure Subscrption benefit (e.g. myuser@hotmail.com) as a Global Admin. There will be no subscriptions visible at this point.
-7. Log on to the Azure Portal as the user who was assigned the new Azure Subscription (e.g. myuser@hotmail.com), and grant the new user created when activating the M365 E5 benefit (e.g. myadmin@mynewdomain.onmicrosoft.com) as a Global Admin.
-8. Still signed in to the Azure Portal as myuser@hotmail.com, under Subscriptions, select the new msdn subscription created when activating the Azure Subscription Benefit. In the OverView page select "Change Directory" and select the new directory created for the M365 E5 benefit i.e. mynewdomain.onmicrosoft.com
+6. Log on to the __Azure Portal__ as the new M365 E5 admin user e.g. myadmin@mynewdomain.onmicrosoft.com, and add the personal account used for the MSDN Azure Subscrption benefit (e.g. myuser@hotmail.com) as a Global Admin. There will be no subscriptions visible at this point.
+7. Log on to the __Azure Portal__ as the user who was assigned the new Azure Subscription (e.g. myuser@hotmail.com), and grant the new user created when activating the M365 E5 benefit (e.g. myadmin@mynewdomain.onmicrosoft.com) as a Global Admin.
+8. Still signed in to the Azure Portal as __myuser@hotmail.com__, under Subscriptions, select the new msdn subscription created when activating the Azure Subscription Benefit. In the OverView page select "Change Directory" and select the new directory created for the M365 E5 benefit i.e. mynewdomain.onmicrosoft.com
 9. Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com. After some time the new MSDN-SKU Azure Subscription will visible and ready for use under this account.
+10. The net result is you have a fully functional Azure / Azure AD environment with E5 licensing for use testing Enterprise features like Conditional Access, Azure Identitiy Security, Azure PIM etc.
 
 ## Prep AAD in new tenant (optional)
 1.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
@@ -31,6 +32,21 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 3.  Find the "Power Auotmate per user service", and sign up for a trial
 4.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
 5.  In the Azure Active Directory service view, select users, select the user to confgiure licensing for, select "Licenses" and add an assignment for E5 and Powerapps as required.
+
+## Connect your MSDN Enterprise Azure Devops instance to the new AAD tenant:
+1. Log on to the Azure Portal as a GLobal Admin
+2. Add a new user, and select "Invite guest"
+3. Enter yor corporate account email address e.g. corpuser@corpdomain.com
+4. Under Roles, add the corpuser@corpdomain.com guest user as a "Azure DevOps Administrator" (may need GLobal Admin?)
+5. Make sure the guest user accepts the invite and is added as a user to the AAD instance
+6. Sign in to my.visualstudio.com as your corporate user account (the one granted MSDN Enterprise benefits)
+7. Next to the "Azure Devops" link, click on "Get Started"
+8. When prompted, select to join an __existing tenant__ (not the corporate one, although it can be changed later). 
+9. From the list, you should see the AAD tenant that the corpuser@corpdomain.com was granted Azure Devops Administrator (Global Amdin??) on.
+10. Select that. Azure Devops will load with your corp user corpuser@corpdomain.com as the Organization admin.
+11. Under Organisation Settings => Users, add other users 
+12. Optionally change the ADO organisation owner 
+13. Optionally enable Azure Devops for AAD Conditional Access integration (Under Security => Policies). __Ensure there is an AAD CA policy with a rule allowing your access before you do this!__
 
 ## Connect Azure DevOps to the new Azure AD tenant, retaining MSDN Enterprise license
 
