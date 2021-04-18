@@ -204,12 +204,14 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     fi
     ```
 
-## Install Python 3 (Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default)
+## Install Python 3 (WSL)
+Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
 1. Open the new WSL instance in Windows Terminal
 2. Run the following to install python 3.8
     ```
     sudo apt update
     sudo apt install software-properties-common
+    # OPTIONAL: sudo add-apt-repository ppa:deadsnakes/ppa (this will specify an upstream repo for python versions but will move out of step/support of Ubuntu default)
     sudo apt install python3.8
     python3 --version
     ```
@@ -219,7 +221,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     sudo apt install python3-pip
     sudo pip3 install --upgrade pip
     ```
-## Install Azure CLI:
+## Install Azure CLI (WSL2):
 1. Run the following command to execute the MS maintained Linux install script. THis will install the latest version:
     ```
     sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -237,11 +239,8 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     az extension add --name azure-firewall
     az extension add --name azure-devops
     az extension add --name cosmosdb-preview
-    ...
+    ..etc
     ```
-    
-    
-
 ## Configure the Windows Powershell theme (Windows host)
 1. Open __Windows Terminal__
 2. Click the Drop Down arrow and select a new __Powershell__ window
