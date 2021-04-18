@@ -39,7 +39,7 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 7. Next to the "Azure Devops" link, click on "Get Started"
 8. When prompted, select to join an __existing tenant__ (not the corporate one, although it can be changed later). 
 Connecting an Azure Devops org to AAD provides some centralised Authentication and RBAC capabilities that are otherwise not available.
-10. From the list, you should see the AAD tenant that the corpuser@corpdomain.com was granted Azure Devops Administrator (Global Amdin??) on.
+10. From the list, you should see the AAD tenant that the corpuser@corpdomain.com was granted Azure Devops Administrator (Global Admin??) on.
 11. Select that. Azure Devops will load with your corp user corpuser@corpdomain.com as the Organization admin.
 12. Under Organisation Settings => Users, add other users e.g. myadmin@mynewdomain.onmicrosoft.com
 13. Grant the new users an ADO RBAC role(s)
