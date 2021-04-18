@@ -233,7 +233,7 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
     ```
 ## Install Azure CLI (WSL Shell):
 1. Open the WSL distro shell in Windows Terminal
-2. Run the following command to execute the MS maintained Linux install script. THis will install the latest version:
+2. Run the following command to execute the MS maintained Linux install script. THis will install and configure the latest version:
     ```
     sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
@@ -288,10 +288,25 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
   ```
   
 ## Install and configure Git for Windows (Windows Host)
-
+1. Download and run the 64-bit Git for Windows setup from here: https://git-scm.com/download/win
+2. Install with the installation _defaults_
+3. Note that at the time of writing, the bundled version of Git Credential Manager Core seems to have issues. Assuming that is still the case, proceed to the next section to install and the configure standalone Git Vredential Manager Core
 
 
 ## OPTIONAL: Install and configure Git Credential Manager __Core__ (Windows Host and WSL)
+Tested version at this timne is v2.0.289. FOr other releases go to https://github.com/microsoft/Git-Credential-Manager-Core/releases
+1. Download and install https://github.com/microsoft/Git-Credential-Manager-Core/releases/tag/v2.0.289-beta
+2. This will install into _C:\Program Files (x86)\Git Credential Manager Core_, where the binary _git-credential-manager-core.exe_ resides
+3. We need to configure the WSL/Linux distro to reference that path as per stesp below 
+  1. In Windows Terminal, open a shell for Ubuntu-20.10 or the recently installed distro
+  2. 
+  3. Run the following command to configure git to call Git Credential Manaager Core:
+    ```
+    cat << EOF >> ~/.gitconfig
+    [credential]
+    helper = manager
+    EOF
+    ```
 
 ## Install and configure VSCode (Windows Host and WSL)
 1. Browse to https://code.visualstudio.com/ and download and run the VSCode installer
