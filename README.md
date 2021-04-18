@@ -42,11 +42,13 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 6. Sign in to my.visualstudio.com as your corporate user account (the one granted MSDN Enterprise benefits)
 7. Next to the "Azure Devops" link, click on "Get Started"
 8. When prompted, select to join an __existing tenant__ (not the corporate one, although it can be changed later). 
-9. From the list, you should see the AAD tenant that the corpuser@corpdomain.com was granted Azure Devops Administrator (Global Amdin??) on.
-10. Select that. Azure Devops will load with your corp user corpuser@corpdomain.com as the Organization admin.
-11. Under Organisation Settings => Users, add other users 
-12. Optionally change the ADO organisation owner 
-13. Optionally enable Azure Devops for AAD Conditional Access integration (Under Security => Policies). __Ensure there is an AAD CA policy with a rule allowing your access before you do this!__
+Connecting an Azure Devops org to AAD provides some centralised Authentication and RBAC capabilities that are otherwise not available.
+10. From the list, you should see the AAD tenant that the corpuser@corpdomain.com was granted Azure Devops Administrator (Global Amdin??) on.
+11. Select that. Azure Devops will load with your corp user corpuser@corpdomain.com as the Organization admin.
+12. Under Organisation Settings => Users, add other users e.g. myadmin@mynewdomain.onmicrosoft.com
+13. Grant the new users an ADO RBAC role(s)
+14. Optionally change the ADO organisation owner 
+15. Optionally enable Azure Devops for AAD Conditional Access integration (Under Security => Policies). __Ensure there is an AAD CA policy with a rule allowing your access before you do this!__
 
 ## Connect Azure DevOps to the new Azure AD tenant, retaining MSDN Enterprise license
 
@@ -298,6 +300,8 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
   ```
   
 ## Install and configure Git for Windows (Windows Host)
+
+
 
 ## OPTIONAL: Install and configure Git Credential Manager __Core__ (Windows Host and WSL)
 
