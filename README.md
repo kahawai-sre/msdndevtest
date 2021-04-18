@@ -33,8 +33,8 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 4.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
 5.  In the Azure Active Directory service view, select users, select the user to confgiure licensing for, select "Licenses" and add an assignment for E5 and Powerapps as required.
 
-## Connect your MSDN Enterprise Azure Devops instance to the new AAD tenant:
-1. Log on to the Azure Portal as a GLobal Admin
+## Activate your MSDN Enterprise Azure Devops instance and connect to the new AAD tenant:
+1. Log on to the Azure Portal as a Global Admin
 2. Add a new user, and select "Invite guest"
 3. Enter yor corporate account email address e.g. corpuser@corpdomain.com
 4. Under Roles, add the corpuser@corpdomain.com guest user as a "Azure DevOps Administrator" (may need GLobal Admin?)
@@ -49,8 +49,6 @@ Connecting an Azure Devops org to AAD provides some centralised Authentication a
 13. Grant the new users an ADO RBAC role(s)
 14. Optionally change the ADO organisation owner 
 15. Optionally enable Azure Devops for AAD Conditional Access integration (Under Security => Policies). __Ensure there is an AAD CA policy with a rule allowing your access before you do this!__
-
-## Connect Azure DevOps to the new Azure AD tenant, retaining MSDN Enterprise license
 
 # Prep local dev-test environment - Assumes Windows 10 Version 1903 or higher, with Build 18362 or higher
 
