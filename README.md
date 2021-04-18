@@ -7,7 +7,7 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 2. Select the "Azure Subscription" benefit and hit Activate
 3. You will be prompted to select an account to map the Azure subscription to. Sign in with your personal account e.g. myuser@hotmail.com.
 4. Signed in to my.visualstudio.com as corpuser@corpdomain.com again, and activate the "Microsoft 365 - Developer Subscription (E5)" benefit. 
-5. When prompted, select the "Setup Subscription option to create as a __NEW__ tenant and create a new "onmicresoft.com" subdomain and admin user when prompted e.g. myadmin@mynewdomain.onmicrosoft.com):
+5. When prompted, select the "Setup Subscription" option to create as a __NEW__ tenant and create a new ".onmicrosoft.com" subdomain and admin user when prompted e.g. myadmin@mynewdomain.onmicrosoft.com):
 ![](/img/M365E5.jpg "Select new M365 subscription")
 6. Log on to the __Azure Portal__ as the new M365 E5 admin user e.g. myadmin@mynewdomain.onmicrosoft.com, and add the personal account used for the MSDN Azure Subscrption benefit (e.g. myuser@hotmail.com) as a Global Admin. There will be no subscriptions visible at this point.
 7. Log on to the __Azure Portal__ as the user who was assigned the new Azure Subscription (e.g. myuser@hotmail.com), and grant the new user created when activating the M365 E5 benefit (e.g. myadmin@mynewdomain.onmicrosoft.com) as a Global Admin.
