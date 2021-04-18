@@ -435,14 +435,14 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
 10. Open a Windows powershell or command prompt, and run the following command which shows that Docker Desktop is running as a WSL 2 distro, not a VM: 
     ```wsl --list -v```:
     ![](/img/wslilist.jpg "List wsl distros")
-## Install docker client in WSL
+## Install the Docker client in WSL
 1. Open a WSL shell for your distro
 2. Install docker:
   ```sudo apt install docker.io```
 4. Verify WSL can talk to the Docker Daemon in Docker Desktop:
   1. Open the WSL distro shell in Windows Terminal
   2. Run ```docker ps``` and verify there are no errors
-  3. RUn ``` sudo apt install docker.io
+  3. Run ```docker container run hello-world``` and verify "hello world" is output when the container runs
 ## Configure the Powershell "Frost" theme  for Windows Terminal (Windows host)
 1. Open __Windows Terminal__
 2. Click the Drop Down arrow and select a new __Powershell__ window
