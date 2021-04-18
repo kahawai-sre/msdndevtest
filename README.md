@@ -73,12 +73,11 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
         Note that this will create a .vhdx image in the target install folder for the distro
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
 ## Run first boot for the new WSL instance - if installed via __Windows Store__ (on Windows host)
-1. Open Windows Terminal
-2. From the drop down list of available distros, select the new distro e.g. Ubuntu-20.10:
-  ![](/img/distro.jpg "Select new Ubuntu distro")
-3. When prompted, enter a new username and password. 
-4. __Remember the password__, it will be required for sudo etc.
-5. Once you have the WSL shell up, rung the following to update the Ubuntu core and packages:
+ 1. From a Windows __command prompt__, run the following to get a shell on the new WSL instance:
+     ``` wsl.exe --distribution "<name_of_new_distro>" ```
+3. When prompted, enter a new username and password.
+4. __Remember the password__, it will be required for sudo from here on
+5. Once you have the WSL shell up, run the following to update the Ubuntu core and packages:
     ```
     sudo apt-get update
     sudo apt-get upgrade
@@ -87,7 +86,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     ```
 ## Run first boot for the new WSL instance - if installed via importing a WSL Cloud image using __wsl.exe --import ..__ (on Windows host)
 1. When creating a new Ubuntu or other WSL image via the command line, vs. Windows Store, you will need to create a new non-root user, configure for sudo, and set as the default user when opening a WSL shell for the distro.
-   1. From a statndard Windows command prompt, run the following to get a shell on the new WSL instance:
+   1. From a Windows __command prompt__, run the following to get a shell on the new WSL instance:
        ``` wsl.exe --distribution "<name_of_new_distro>" ```
         ![](/img/startwsl.jpg "Select new Ubuntu distro")
    2. Create a new Ubuntu user and set password when prompted:
@@ -129,6 +128,8 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 4. Drag the extracted .ttf file to the "Add fonts" control in the4 FOnt Settings window.
 
 ## Install and configure Windows Terminal (Windows host)
+Windows Terminal is a highly responsive terminal for managing Powershell, CLoudShell and WSL sessions
+![](/img/distro.jpg "Select new Ubuntu distro")
 1. Search for and install "Windows Terminal" from the Windows Store
 2. Windows Terminal uses a "settings.json" configuration file to customise the distros and settings for each (appearance etc)
 3. Open Windows Terminal, and select Settings from the drop down in the window navigation bar
