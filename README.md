@@ -13,7 +13,7 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 7. Log on to the __Azure Portal__ as the user who was assigned the new Azure Subscription (e.g. myuser@hotmail.com), and grant the new user created when activating the M365 E5 benefit (e.g. myadmin@mynewdomain.onmicrosoft.com) as a Global Admin.
 8. Still signed in to the Azure Portal as __myuser@hotmail.com__, under Subscriptions, select the new msdn subscription created when activating the Azure Subscription Benefit. In the OverView page select "Change Directory" and select the new directory created for the M365 E5 benefit i.e. mynewdomain.onmicrosoft.com
 9. Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com. After some time the new MSDN-SKU Azure Subscription will visible and ready for use under this account.
-10. The net result is you have a fully functional Azure / Azure AD environment with E5 licensing for use testing Enterprise features like Conditional Access, Azure Identitiy Security, Azure PIM etc.
+10. The net result is you have a fully functional Azure / Azure AD environment with E5 licensing for use testing Enterprise features like Conditional Access, Azure Identity Security, Azure PIM etc.
 ## Prep AAD in the new tenant (optional)
 1.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
 2.  In the Azure Active Directory service view, optionally configure:
@@ -26,7 +26,7 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 ## Assign E5 developer licenses to AAD users in the new tenant, and activate PowerAutomate Per User trial license (for testing PowerAutomate with Enterprise features)
 1.  Sign in to the Office 365 admin center https://admin.microsoft.com/Adminportal/Home#/homepage as your MSDN M365 E5 tenant admin i.e. myadmin@mynewdomain.onmicrosoft.com
 2.  Select Billing and then Purchase Services
-3.  Find the "Power Auotmate per user service", and sign up for a trial
+3.  Find the "Power Automate per user service", and sign up for a trial
 4.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
 5.  In the Azure Active Directory service view, select users, select the user to confgiure licensing for, select "Licenses" and add an assignment for E5 and Powerapps as required.
 ## Activate your MSDN Enterprise Azure Devops instance and connect to the new AAD tenant:
