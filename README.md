@@ -196,6 +196,98 @@ Windows Terminal is a highly responsive terminal for managing Powershell, CLoudS
             }
         ],
         ```
+    4. The complete settings.json file should look like this:
+      ```
+        {
+          "$schema": "https://aka.ms/terminal-profiles-schema",
+          "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+          "copyOnSelect": false,
+          "copyFormatting": false,
+          "profiles":
+          {
+              "defaults":
+              {
+                  // Put settings here that you want to apply to all profiles.
+              },
+              "list":
+              [
+                  {
+                      "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                      "name": "Windows PowerShell",
+                      "commandline": "powershell.exe",
+                      "hidden": false,
+                      "fontSize": 10,
+                      "acrylicOpacity": 0.7,
+                      "colorScheme" : "Frost",
+                      "cursorColor" : "#000000",
+                      "fontFace" : "Cascadia Code PL",
+                      "useAcrylic": true
+                  },
+                  {
+                      "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                      "name": "Command Prompt",
+                      "commandline": "cmd.exe",
+                      "hidden": false
+                  },
+                  {
+                      "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                      "hidden": false,
+                      "name": "Ubuntu-20.04",
+                      "source": "Windows.Terminal.Wsl",
+                      "startingDirectory": "\\\\wsl$\\Ubuntu-20.04\\home\\jtadmin",
+                      "fontFace" : "Cascadia Code PL",
+                      "fontSize": 10
+                  },
+                  {
+                      "guid": "{3d0f99a1-1396-5f59-a7d5-39ae93daa8d5}",
+                      "hidden": false,
+                      "name": "Ubuntu-20.10",
+                      "source": "Windows.Terminal.Wsl",
+                      "startingDirectory": "\\\\wsl$\\Ubuntu-20.04\\home\\jtadmin",
+                      "fontFace" : "Cascadia Code PL",
+                      "fontSize": 10
+                  },
+                  {
+                      "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                      "hidden": false,
+                      "name": "Azure Cloud Shell",
+                      "source": "Windows.Terminal.Azure"
+                  }
+              ]
+          },
+          "schemes": [
+              {
+                  "name" : "Frost",
+                  "background" : "#FFFFFF",
+                  "black" : "#3C5712",
+                  "blue" : "#17b2ff",
+                  "brightBlack" : "#749B36",
+                  "brightBlue" : "#27B2F6",
+                  "brightCyan" : "#13A8C0",
+                  "brightGreen" : "#89AF50",
+                  "brightPurple" : "#F2A20A",
+                  "brightRed" : "#F49B36",
+                  "brightWhite" : "#741274",
+                  "brightYellow" : "#991070",
+                  "cyan" : "#3C96A6",
+                  "foreground" : "#000000",
+                  "green" : "#6AAE08",
+                  "purple" : "#991070",
+                  "red" : "#8D0C0C",
+                  "white" : "#6E386E",
+                  "yellow" : "#991070"
+              }
+          ],
+          "actions":
+          [
+              { "command": {"action": "copy", "singleLine": false }, "keys": "ctrl+c" },
+              { "command": "paste", "keys": "ctrl+v" },
+              { "command": "find", "keys": "ctrl+shift+f" },
+              { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" }
+          ]
+      }
+    ```
+
 ## Configure the WSL bash theme (Windows host then WSL shell):
 1. Open Windows Terminal and if not the default, open a new Ubuntu-20.xx shell/window
 2. Run the following commands to install powerline-go
