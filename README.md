@@ -1,7 +1,7 @@
 # msdndevtest
 Review steps for activating an MSDN Enterprise subscription and setting up a WSL2, Ubuntu, Docker Desktop, and VSCode development environment for Microsoft Azure
 # Prep Azure and Office 365 environment
-## Activate ad prep Azure MSDN Enterprise benefits (high level, covers Azure Subscription and M365 E5 benefits only))
+## Activate ad prep Azure and M365 E5 Developer MSDN Enterprise benefits
 1. Assuming your MSDN Enterprise License has been assigned to a corporate account, log on to my.visualstudio.com as e.g. corpuser@corpdomain.com
 2. Select the "Azure Subscription" benefit and hit Activate
 3. You will be prompted to select an account to map the Azure subscription to. Sign in with your personal account e.g. myuser@hotmail.com.
@@ -13,10 +13,10 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 8. Still signed in to the Azure Portal as __myuser@hotmail.com__, under Subscriptions, select the new msdn subscription created when activating the Azure Subscription Benefit. In the OverView page select "Change Directory" and select the new directory created for the M365 E5 benefit i.e. mynewdomain.onmicrosoft.com
 9. Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com. After some time the new MSDN-SKU Azure Subscription will visible and ready for use under this account.
 10. The net result is you have a fully functional Azure / Azure AD environment with E5 licensing for use testing Enterprise features like Conditional Access, Azure Identitiy Security, Azure PIM etc.
-## Prep AAD in new tenant (optional)
+## Prep AAD in the new tenant (optional)
 1.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
-2.  In the Azure Active Directory service view, look at configuring:
-  - Custom domains names (if you own a domain and want to use for AAD testing)
+2.  In the Azure Active Directory service view, optionally configure:
+  - Custom domains names (if you own a domain and want to use for AAD testing, rather than the default "onmicrosoft.com" sub-domain)
   - Company branding
   - Change Security Defaults to use Conditional Access for testing
   - Create test users
@@ -399,14 +399,18 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
       chmod +x $file
       exit
       ```
-  3. Run the following command to configure git to call Git Credential Manaager Core:
+  3. The resulting script ```/usr/bin/git-credential-manager ``` should look like this:
+      ```exec /mnt/c/Program\ Files\ \(x86\)/Git\ Credential\ Manager\ Core/git-credential-manager-core.exe $@```
+  5. Run the following command to configure git to call Git Credential Manaager Core:
       ```
       cat << EOF >> ~/.gitconfig
       [credential]
       helper = manager
       EOF
       ```
-  4. No other git config is necessary, and Git Credential Manager Core will call an OAuth flow against either github or Azure Devops repos depending on the source/target of the git operation:
+  4. Run ```git config -l``` and verify the output shows this line:
+      ```credential.helper=manager```
+  6. No other git config is necessary, and Git Credential Manager Core will call an OAuth flow against either github or Azure Devops repos depending on the source/target of the git operation:
       ![](/img/aadauth.jpg "Example GCMC auth flow")
     
 ## Install and configure VSCode (Windows Host and WSL)
