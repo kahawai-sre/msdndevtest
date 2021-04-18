@@ -406,7 +406,8 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
       helper = manager
       EOF
       ```
-  4. No other git config is necessary, and Git Credential Manager Core will call an OAuth flow against either github or Azure Devops repos depending on the source/target of the git operation.
+  4. No other git config is necessary, and Git Credential Manager Core will call an OAuth flow against either github or Azure Devops repos depending on the source/target of the git operation:
+      ![](/img/aadauth.jpg "Example GCMC auth flow")
     
 ## Install and configure VSCode (Windows Host and WSL)
 1. Browse to https://code.visualstudio.com/ and download and run the VSCode installer
