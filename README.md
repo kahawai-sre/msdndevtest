@@ -186,7 +186,6 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
             }
         ],
         ```
- 
 ## Configure the WSL bash theme:
 1. Open Windows Terminal and if not the default, open a new Ubuntu-20.xx shell/window
 2. Run the following commands to install powerline-go
