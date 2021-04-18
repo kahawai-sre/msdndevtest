@@ -432,9 +432,8 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
 2. Ensure you have at least version 3.2.2.x or above 
 3. When installing, make sure you select __"Install required Windows components for WSL 2"__ ... do _NOT_ select the Hyper-V option
 4. After installation, start Docker Desktop (if not already started)
-5. Open a Windows powershell or command prompt, and run the following command which shows that Docker Desktop is running as a WSL 2 instance, not a VM
-    
-7. 
+5. Open a Windows powershell or command prompt, and run the following command which shows that Docker Desktop is running as a WSL 2 distro, not a VM: ```wsl --list -v```:
+    ![](/img/wslilist.jpg "List wsl distros")
 
 ## Configure the Powershell "Frost" theme  for Windows Terminal (Windows host)
 1. Open __Windows Terminal__
