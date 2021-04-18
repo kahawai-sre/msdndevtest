@@ -74,7 +74,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
   ```
         Note that this will create a .vhdx image in the target install folder for the distro
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
-## Run first boot for the new WSL instance - if installed via __Windows Store__ (on Windows host)
+## Run first boot for the new WSL instance - if installed via __Windows Store__
 1. From a Windows __command prompt__, run the following to get a shell on the new WSL instance:
     ``` 
     wsl.exe --distribution "<name_of_new_distro>" 
@@ -88,7 +88,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     sudo apt-get dist-upgrade
     sudo apt-get autoremove
     ```
-## Run first boot for the new WSL instance - if installed via importing a WSL Cloud image using __wsl.exe --import ..__ (on Windows host)
+## Run first boot for the new WSL instance - if installed via importing a WSL Cloud image using __wsl.exe --import ..__
 1. When creating a new Ubuntu or other WSL image via the command line, vs. Windows Store, you will need to create a new non-root user, configure for sudo, and set as the default user when opening a WSL shell for the distro.
    1. From a Windows __command prompt__, run the following to get a shell on the new WSL instance:
        ``` wsl.exe --distribution "<name_of_new_distro>" ```
