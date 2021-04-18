@@ -57,12 +57,12 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
   ```
 4. Download and installl the WSL2 Linux Kernel package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 5. Reboot
-## Install Ubuntu (e.g. 20.04 LTS) as a WSL2 instance (on Windows host)
+## Install Ubuntu as a WSL2 instance (on Windows host)
 ### Option 1: From the Microsoft Store
 1. Open Micrsosoft Store, for Ubuntu 20:04 use this link https://www.microsoft.com/store/apps/9n6svws3rx71
 2. Follow the normal Store options to install
 ### Option 2: From the Ubuntu Cloud Images library:
-1. From https://cloud-images.ubuntu.com/releases navigate to the desired release folder e.g. 20.10 https://cloud-images.ubuntu.com/releases/groovy/release/
+1. From https://cloud-images.ubuntu.com/releases navigate to the desired release folder e.g. Ubuntu 20.10 https://cloud-images.ubuntu.com/releases/groovy/release/
 2. Find the file with suffix ..."-amd64-wsl.rootfs.tar.gz" and download e.g. https://cloud-images.ubuntu.com/releases/groovy/release/ubuntu-20.10-server-cloudimg-amd64-wsl.rootfs.tar.gz
 3. Copy the downloaded install to a subfolder under your home directory e.g. C:\Users\usera\wsl-distros
 4. From a command prompt, run the following to create a new WSL instance:
