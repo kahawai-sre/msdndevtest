@@ -427,8 +427,14 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
 7. Subsequent runs of ```code .``` will launch VSCode in the WSL context
 8. When VSCode is launched in the WSL context, installing VSCode extensions will prompt to install in WSL and - if relevant - Windows contexts.
 
-## Install and configure Docker Desktop (Windows Host)
-
+## Install Docker Desktop (Windows Host)
+1. To get a functional docker daemon that can be called by both Windows and WSL clients, download and execute Docker Desktop from https://docs.docker.com/docker-for-windows/install/#install-docker-desktop-on-windows
+2. Ensure you have at least version 3.2.2.x or above 
+3. When installing, make sure you select __"Install required Windows components for WSL 2"__ ... do _NOT_ select the Hyper-V option
+4. After installation, start Docker Desktop (if not already started)
+5. Open a Windows powershell or command prompt, and run the following command which shows that Docker Desktop is running as a WSL 2 instance, not a VM
+    
+7. 
 
 ## Configure the Powershell "Frost" theme  for Windows Terminal (Windows host)
 1. Open __Windows Terminal__
