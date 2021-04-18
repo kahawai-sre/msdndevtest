@@ -143,7 +143,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
           "startingDirectory": "\\\\wsl$\\Ubuntu-20.10\\home\\jtadmin",
           "fontFace" : "Cascadia Code PL",
           "fontSize": 10
-      },
+      }
       ```
     3. Update the Powershell profile to optimise appearance:
       ```
@@ -202,7 +202,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
         PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
     fi
-  ```
+    ```
 
 ## Install Python 3 (Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default)
 1. Open the new WSL instance in Windows Terminal
