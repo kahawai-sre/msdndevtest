@@ -306,6 +306,9 @@ Ubuntu 18.04 or 20.04 only - ships with 20.10+ by default
 ## OPTIONAL: Install and configure Git Credential Manager __Core__ (Windows Host and WSL)
 
 ## Install and configure VSCode (Windows Host and WSL)
+1. Browse to https://code.visualstudio.com/ and download and run the VSCode installer
+2. When prompted, make sure the following is selected:
+3. 
 
 ## Install and configure Docker Desktop (Windows Host)
 
