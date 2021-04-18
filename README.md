@@ -1,9 +1,7 @@
 # msdndevtest
 Review steps for activating an MSDN Enterprise subscription and setting up a WSL2, Ubuntu, Docker Desktop, and VSCode development environment for Microsoft Azure
-
 # Prep Azure and Office 365 environment
 ## Activate ad prep Azure MSDN Enterprise benefits (high level, covers Azure Subscription and M365 E5 benefits only))
-
 1. Assuming your MSDN Enterprise License has been assigned to a corporate account, log on to my.visualstudio.com as e.g. corpuser@corpdomain.com
 2. Select the "Azure Subscription" benefit and hit Activate
 3. You will be prompted to select an account to map the Azure subscription to. Sign in with your personal account e.g. myuser@hotmail.com.
@@ -15,7 +13,6 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
 8. Still signed in to the Azure Portal as __myuser@hotmail.com__, under Subscriptions, select the new msdn subscription created when activating the Azure Subscription Benefit. In the OverView page select "Change Directory" and select the new directory created for the M365 E5 benefit i.e. mynewdomain.onmicrosoft.com
 9. Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com. After some time the new MSDN-SKU Azure Subscription will visible and ready for use under this account.
 10. The net result is you have a fully functional Azure / Azure AD environment with E5 licensing for use testing Enterprise features like Conditional Access, Azure Identitiy Security, Azure PIM etc.
-
 ## Prep AAD in new tenant (optional)
 1.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
 2.  In the Azure Active Directory service view, look at configuring:
@@ -25,14 +22,12 @@ Review steps for activating an MSDN Enterprise subscription and setting up a WSL
   - Create test users
   - Configure AD Connect (requires a test VM running a traditional Active Directory domain, with connectivity to the Internet)
   - ....
-
-## Sign up for PowerApps Automate per user trial, and assign E5 licenses to AAD users in the new tenant
+## Assign E5 developer licenses to AAD users in the new tenant, and activate PowerAutomate Per User trial license (for testing PowerAutomate with Enterprise features)
 1.  Sign in to the Office 365 admin center https://admin.microsoft.com/Adminportal/Home#/homepage as your MSDN M365 E5 tenant admin i.e. myadmin@mynewdomain.onmicrosoft.com
 2.  Select Billing and then Purchase Services
 3.  Find the "Power Auotmate per user service", and sign up for a trial
 4.  Sign in to the Azure Portal as myadmin@mynewdomain.onmicrosoft.com
 5.  In the Azure Active Directory service view, select users, select the user to confgiure licensing for, select "Licenses" and add an assignment for E5 and Powerapps as required.
-
 ## Activate your MSDN Enterprise Azure Devops instance and connect to the new AAD tenant:
 1. Log on to the Azure Portal as a Global Admin
 2. Add a new user, and select "Invite guest"
@@ -49,9 +44,7 @@ Connecting an Azure Devops org to AAD provides some centralised Authentication a
 13. Grant the new users an ADO RBAC role(s)
 14. Optionally change the ADO organisation owner 
 15. Optionally enable Azure Devops for AAD Conditional Access integration (Under Security => Policies). __Ensure there is an AAD CA policy with a rule allowing your access before you do this!__
-
 # Prep local dev-test environment - Assumes Windows 10 Version 1903 or higher, with Build 18362 or higher
-
 ## Install Windows Subsystem for Linux v2 -WSL2 (on Windows host)
 Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 1. Enable subsystem for Linux:
@@ -64,7 +57,6 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
   ```
 4. Download and installl the WSL2 Linux Kernel package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 5. Reboot
-
 ## Install Ubuntu (e.g. 20.04 LTS) as a WSL2 instance (on Windows host)
 ### Option 1: From the Microsoft Store
 1. Open Micrsosoft Store, for Ubuntu 20:04 use this link https://www.microsoft.com/store/apps/9n6svws3rx71
@@ -80,8 +72,6 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
   ```
         Note that this will create a .vhdx image in the target install folder for the distro
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
-
-
 ## Run first boot for the new WSL instance - if installed via __Windows Store__ (on Windows host)
 1. Open Windows Terminal
 2. From the drop down list of available distros, select the new distro e.g. Ubuntu-20.10:
@@ -95,7 +85,6 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
     sudo apt-get dist-upgrade
     sudo apt-get autoremove
     ```
-
 ## Run first boot for the new WSL instance - if installed via importing a WSL Cloud image using __wsl.exe --import ..__ (on Windows host)
 1. When creating a new Ubuntu or other WSL image via the command line, vs. Windows Store, you will need to create a new non-root user, configure for sudo, and set as the default user when opening a WSL shell for the distro.
    1. From a statndard Windows command prompt, run the following to get a shell on the new WSL instance:
