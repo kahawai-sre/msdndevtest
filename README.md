@@ -45,7 +45,8 @@ Connecting an Azure Devops org to AAD provides some centralised Authentication a
 13. Grant the new users an ADO RBAC role(s)
 14. Optionally change the ADO organisation owner 
 15. Optionally enable Azure Devops for AAD Conditional Access integration (Under Security => Policies). __Ensure there is an AAD CA policy with a rule allowing your access before you do this!__
-# Prep local dev-test environment - Assumes Windows 10 Version 1903 or higher, with Build 18362 or higher
+# Prep local Windows 10 dev-test environment
+Assumes Windows 10 Version 1903 or higher, with Build 18362 or higher
 ## Install Windows Subsystem for Linux v2 -WSL2 (on Windows host)
 Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 1. Enable subsystem for Linux:
