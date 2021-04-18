@@ -66,8 +66,15 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 1. Open Windows Terminal
 2. From the drop down list of available distros, select the new distro e.g. Ubuntu-20.10:
   ![](/img/distro.jpg "Select new Ubuntu distro")
-3. When promppted, enter a new username and password. 
+3. When prompted, enter a new username and password. 
 4. __Remember the password__, it will be required for sudo etc.
+5. Once you have the WSL shell up, rung the following to update the Ubuntu core and packages:
+    ```
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    sudo apt-get autoremove
+    ```
 
 ## Run first boot for the new WSL instance - if installed via importing a WSL Cloud image using __wsl.exe --import ..__
 1. When creating a new Ubuntu or other WSL image via the command line, vs. Windows Store, you will need to create a new non-root user, configure for sudo, and set as the default user when opening a WSL shell for the distro.
@@ -90,7 +97,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
       sudo usermod -aG sudo jtadmin
       ```
    5. Type "exit" to get back to the windows command prompt
-   6. Terminate the new instance:
+   6. Terminate the new instance so the new user setting scan take effect on next start.
       ```
       wsl.exe --terminate Ubuntu-20.10
       ```
@@ -98,9 +105,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
       ``` 
       wsl.exe -- distribution Ubuntu-20.10
       ```
-    
-## 
-5. Update the Ubuntu distro as follows:
+2. Update the Ubuntu distro as follows:
     ```
     sudo apt-get update
     sudo apt-get upgrade
@@ -112,7 +117,7 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
 1. Download https://github.com/microsoft/cascadia-code/releases/download/v2102.25/CascadiaCode-2102.25.zip (or newer from https://github.com/microsoft/cascadia-code/releases)
 2. Extract the /ttf/CascadiaCodePL.ttf font
 3. In Windows, Start => Settings => Search for "Font Settings" and open
-4. Drag the extracted .ttf file to the "Add fonts" control
+4. Drag the extracted .ttf file to the "Add fonts" control in the4 FOnt Settings window.
 
 ## Install and configure Windows Terminal (Windows host)
 1. Search for and install "Windows Terminal" from the Windows Store
@@ -140,70 +145,69 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
           "fontSize": 10
       },
       ```
-  3. Update the Powershell profile to optimise appearance:
-    ```
-    {
-      "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-      "name": "Windows PowerShell",
-      "commandline": "powershell.exe",
-      "hidden": false,
-      "fontSize": 10,
-      "acrylicOpacity": 0.7,
-      "colorScheme" : "Frost",
-      "cursorColor" : "#000000",
-      "fontFace" : "Cascadia Code PL",
-      "useAcrylic": true
-    },
-    ...
-  4. Define the "Frost" colour scheme for Powershell
-    ```
-    "schemes": [
-        {
-            "name" : "Frost",
-            "background" : "#FFFFFF",
-            "black" : "#3C5712",
-            "blue" : "#17b2ff",
-            "brightBlack" : "#749B36",
-            "brightBlue" : "#27B2F6",
-            "brightCyan" : "#13A8C0",
-            "brightGreen" : "#89AF50",
-            "brightPurple" : "#F2A20A",
-            "brightRed" : "#F49B36",
-            "brightWhite" : "#741274",
-            "brightYellow" : "#991070",
-            "cyan" : "#3C96A6",
-            "foreground" : "#000000",
-            "green" : "#6AAE08",
-            "purple" : "#991070",
-            "red" : "#8D0C0C",
-            "white" : "#6E386E",
-            "yellow" : "#991070"
-        }
-    ],
-    ```
+    3. Update the Powershell profile to optimise appearance:
+      ```
+      {
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "Windows PowerShell",
+        "commandline": "powershell.exe",
+        "hidden": false,
+        "fontSize": 10,
+        "acrylicOpacity": 0.7,
+        "colorScheme" : "Frost",
+        "cursorColor" : "#000000",
+        "fontFace" : "Cascadia Code PL",
+        "useAcrylic": true
+      },
+      ```
+    4. Define the "Frost" colour scheme for Powershell
+        ```
+        "schemes": [
+            {
+                "name" : "Frost",
+                "background" : "#FFFFFF",
+                "black" : "#3C5712",
+                "blue" : "#17b2ff",
+                "brightBlack" : "#749B36",
+                "brightBlue" : "#27B2F6",
+                "brightCyan" : "#13A8C0",
+                "brightGreen" : "#89AF50",
+                "brightPurple" : "#F2A20A",
+                "brightRed" : "#F49B36",
+                "brightWhite" : "#741274",
+                "brightYellow" : "#991070",
+                "cyan" : "#3C96A6",
+                "foreground" : "#000000",
+                "green" : "#6AAE08",
+                "purple" : "#991070",
+                "red" : "#8D0C0C",
+                "white" : "#6E386E",
+                "yellow" : "#991070"
+            }
+        ],
+        ```
  
-
 ## Configure the WSL bash theme:
 1. Open Windows Terminal and if not the default, open a new Ubuntu-20.xx shell/window
 2. Run the following commands to install powerline-go
-  ```
-  sudo apt install golang-go
-  go get -u github.com/justjanne/powerline-go
-  ```
-3. Add the following to __~/.bashrc__ (vim ~/.bashrc):
-  ```
-  GOPATH=$HOME/go
-  function _update_ps1() {
-      PS1="$($GOPATH/bin/powerline-go -error $?)"
-  }
-  if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
-      PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-  fi
+    ```
+    sudo apt install golang-go
+    go get -u github.com/justjanne/powerline-go
+    ```
+3. Add the following to __~/.bashrc__ (sudo vim ~/.bashrc):
+    ```
+    GOPATH=$HOME/go
+    function _update_ps1() {
+        PS1="$($GOPATH/bin/powerline-go -error $?)"
+    }
+    if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+        PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+    fi
   ```
 
-## Configure the Windows Powershell theme
-1. Open Windows Terminal
-2. Click the Drop Down arrow and select a new Powershell window
+## Configure the Windows Powershell theme (Windows host)
+1. Open __Windows Terminal__
+2. Click the Drop Down arrow and select a new __Powershell__ window
 3. Install :
   ```
   Install-Module oh-my-posh -Scope CurrentUser
@@ -218,6 +222,17 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
   Import-Module oh-my-posh
   Set-PoshPrompt Paradox
   ```
+
+## Install cli tools and Powershell core (WSL distro)
+
+## Install and configure Git for Windows (Windows Host)
+
+## OPTIONAL: Install and configure Git Credential Manager __Core__ (WIndows Host and WSL)
+
+## Install and configure VSCode (Windows Host and WSL)
+
+## Install and configure Docker Desktop (Windows Host)
+
 
 ## Useful links
 * https://wiki.ubuntu.com/WSL
