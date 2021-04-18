@@ -448,7 +448,7 @@ Tested version at this time is __v2.0.289__. For other releases go to https://gi
   1. Open the WSL distro shell in Windows Terminal
   2. Run ```docker ps``` and verify there are no errors
   3. Run ```docker container run hello-world``` and verify "hello world" is output when the container runs
-## Configure the Powershell "Frost" theme  for Windows Terminal (Windows host)
+## Configure the Powershell "Paradox" theme  for Windows Terminal (Windows host)
 1. Open __Windows Terminal__
 2. Click the Drop Down arrow and select a new __Powershell__ window
 3. Install:
