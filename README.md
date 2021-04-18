@@ -412,8 +412,10 @@ Tested version at this timne is __v2.0.289__. For other releases go to https://g
 ## Install and configure VSCode (Windows Host and WSL)
 1. Browse to https://code.visualstudio.com/ and download and run the VSCode installer
 2. When prompted, make sure the following is selected:
-3. 
-
+    ![](/img/add_to_path.png "Add to path option")
+3. Open Vistual Studio Code, and install the "Remote WSL" extension:
+     ![](/img/Remote.JPG "Install Remote WSL Extension")
+    This will enable integration between VSCode in Windows, and the WSL Linux environment
 ## Install and configure Docker Desktop (Windows Host)
 
 
