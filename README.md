@@ -75,11 +75,11 @@ Full details here: https://docs.microsoft.com/en-us/windows/wsl/install-win10
         Note that this will create a .vhdx image in the target install folder for the distro
 6. Repeat steps for additional Ubuntu distros or alternate Linux images
 ## Run first boot for the new WSL instance - if installed via __Windows Store__ (on Windows host)
- 1. From a Windows __command prompt__, run the following to get a shell on the new WSL instance:
-     ``` wsl.exe --distribution "<name_of_new_distro>" ```
-3. When prompted, enter a new username and password.
-4. __Remember the password__, it will be required for sudo from here on
-5. Once you have the WSL shell up, run the following to update the Ubuntu core and packages:
+1. From a Windows __command prompt__, run the following to get a shell on the new WSL instance:
+    ``` wsl.exe --distribution "<name_of_new_distro>" ```
+2. When prompted, enter a new username and password.
+3. __Remember the password__, it will be required for sudo from here on
+4. Once you have the WSL shell up, run the following to update the Ubuntu core and packages:
     ```
     sudo apt-get update
     sudo apt-get upgrade
