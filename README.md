@@ -1,3 +1,4 @@
+:construction:
 # msdndevtest
 Review steps for activating an MSDN Enterprise subscription and setting up a WSL2, Ubuntu, Docker Desktop, and VSCode development environment for Microsoft Azure
 # Prep Azure and Office 365 environment
